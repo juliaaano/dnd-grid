@@ -54,7 +54,8 @@ function onDrop(event, ui, droppable) {
 	droppable.removeClass("drag-activate-maybe");
 
 	droppable.addClass("drop");
-	// droppable.find("p").html("Dropped!");
+	
+	addShiftLabel(ui, droppable);
 
 	droppable.droppable("disable"); // It's gotta go before ui.draggable("disable");
 
@@ -106,6 +107,19 @@ function onOver(event, ui, droppable) {
 function onOut(event, ui, droppable) {
 
 	// droppable.removeClass("drag-over");
+}
+
+function addShiftLabel(ui, droppable) {
+	
+	var shift = ui.draggable.parent()[0].id;
+	
+	if ("morning" == shift) {
+		droppable.find("p").html("MO");
+	} else if ("afternoon" == shift) {
+		droppable.find("p").html("AF");
+	} else if ("evening" == shift) {
+		droppable.find("p").html("EV");
+	}
 }
 
 function retrieveWeekDayIndex(weekDay) {
