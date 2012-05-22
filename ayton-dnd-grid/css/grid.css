@@ -39,6 +39,10 @@ body {
 	background: url(yellowsquare.jpg);
 }
 
+.highlight-droppable {
+	background: url(lightgraysquare.jpg);
+}
+
 .square {
 	position: relative;
 	float: left;

@@ -15,8 +15,9 @@ $(function() {
 		helper : "clone",
 		opacity : 0.7,
 		// axis: "y", // problem with helper out of line when dragging vertically.
-		stop : function(event, ui) {
-			// $(this).remove();
+		create : function (event, ui) {
+			$(this).attr("onmouseover", "onMouseOverDraggable(this)");
+			$(this).attr("onmouseout", "onMouseOverDraggable(this)");
 		}
 	});
 
@@ -109,6 +110,15 @@ function onOver(event, ui, droppable) {
 function onOut(event, ui, droppable) {
 
 	// droppable.removeClass("drag-over");
+}
+
+function onMouseOverDraggable(element) {
+	
+	var squareIndex = element.classList[1].substring(7);
+	
+	var droppable = $(".droppable-" + squareIndex);
+	
+	droppable.toggleClass("highlight-droppable");
 }
 
 function onClickDroppedSquare(element) {
