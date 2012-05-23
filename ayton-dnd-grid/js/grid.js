@@ -15,8 +15,9 @@ $(function() {
 		helper : "clone",
 		opacity : 0.7,
 		// axis: "y", // problem with helper out of line when dragging vertically.
-		stop : function(event, ui) {
-			// $(this).remove();
+		create : function (event, ui) {
+			$(this).attr("onmouseover", "onMouseOverDraggable(this)");
+			$(this).attr("onmouseout", "onMouseOverDraggable(this)");
 		}
 	});
 
@@ -62,6 +63,8 @@ function onDrop(event, ui, droppable) {
 	ui.draggable.addClass("drag-disabled");
 	ui.helper.remove();
 	ui.draggable.draggable("disable");
+	
+	droppable.attr("onclick", "onClickDroppedSquare(this)");
 }
 
 function onActivate(event, ui, droppable) {
@@ -69,7 +72,7 @@ function onActivate(event, ui, droppable) {
 	var employeeId = droppable.parent()[0].id.substring(9); // Must be format 'employee-00'.
 	var employeeIndex = parseInt(employeeId) - 1;
 
-	var weekDayIndex = retrieveWeekDayIndex(ui.draggable[0].id);
+	var weekDayIndex = retrieveWeekDayIndex(ui.draggable[0].title);
 
 	var parentId = ui.draggable.parent()[0].id;
 
@@ -107,6 +110,41 @@ function onOver(event, ui, droppable) {
 function onOut(event, ui, droppable) {
 
 	// droppable.removeClass("drag-over");
+}
+
+function onMouseOverDraggable(element) {
+	
+	var squareIndex = element.classList[1].substring(7);
+	
+	var droppable = $(".droppable-" + squareIndex);
+	
+	droppable.toggleClass("highlight-droppable");
+}
+
+function onClickDroppedSquare(element) {
+
+	var droppable = $(element);
+
+	var shift = droppable.find("p").html();
+
+	var className = element.classList[1];
+
+	var draggable = null;
+
+	if ("MO" == shift) {
+		draggable = $('[id="morning"] > [class*=' + className + ']');
+	} else if ("AF" == shift) {
+		draggable = $('[id="afternoon"] > [class*=' + className + ']');
+	} else if ("EV" == shift) {
+		draggable = $('[id="evening"] > [class*=' + className + ']');
+	}
+
+	draggable.draggable("enable");
+	draggable.removeClass("drag-disabled");
+
+	droppable.droppable("enable");
+	droppable.removeClass("drop");
+	droppable.find("p").html("");
 }
 
 function addShiftLabel(ui, droppable) {

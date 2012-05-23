@@ -60,6 +60,7 @@ p {
 	margin: 0 auto;
 }
 
+
 #head .content {
 	width: 100%;
 	height: 80px;
@@ -142,6 +143,10 @@ p {
 	background: url(yellowsquare.jpg);
 }
 
+.highlight-droppable {
+	background: url(lightgraysquare.jpg);
+}
+
 .square {
 	position: relative; 
 	float: left;
@@ -169,4 +174,3 @@ p {
 .weekdays .square:first-child, .monthdays .square:first-child {
 	width: 143px;
 } 
-
