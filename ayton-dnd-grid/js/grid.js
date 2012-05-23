@@ -21,7 +21,7 @@ $(function() {
 		}
 	});
 
-	for ( var i = 1; i <= 14; i++) {
+	for ( var i = 1; i <= 21; i++) {
 		var number = i.toString();
 		if (i < 10) {
 			number = "0" + number;
