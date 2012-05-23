@@ -129,6 +129,8 @@ a:hover {
 .grid-row {
 	display: block;
 	clear: both;
+	margin: 0;
+	padding: 0;
 }
 
 .theGrid:after, .grid-row:after {
