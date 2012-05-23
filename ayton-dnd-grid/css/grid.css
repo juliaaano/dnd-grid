@@ -1,3 +1,4 @@
+/** sprite: grid; sprite-layout: vertical; sprite-image: url(../images/grid.png) */
 html,body {
 	width: 100%;
 	min-height: 100%;
@@ -21,6 +22,16 @@ p {
 	line-height: 1em;
 }
 
+a {
+	color: #8552D1;
+	text-decoration: none;
+	border-bottom: 1px dotted #8552D1;
+}
+
+a:hover {
+	border-bottom-style: solid;
+}
+
 #page {
 	position: absolute;
 	width: 100%;
@@ -39,9 +50,11 @@ p {
 }
 
 #pageContent {
-	padding: 16px 0 96px;
+	padding: 16px 15px 96px 15px;
 	margin: 0 auto;
+	padding: 0 15px;
 	max-width: 960px;
+	min-width: 625px;
 }
 
 #foot {
@@ -103,7 +116,7 @@ p {
 	padding: 0;
 }
 
-.theGrid {
+#theGrid {
 	clear: both;
 	margin: 0 auto;
 }
@@ -152,6 +165,7 @@ p {
 	float: left;
 	margin: 0 1px 1px 0;
 	display: block;
+	overflow: hidden;
 }
 
 .square-header, .weekdays .square, .monthdays .square {
@@ -171,6 +185,117 @@ p {
 	background-color: #A9A3BF;
 }
 
-.weekdays .square:first-child, .monthdays .square:first-child {
-	width: 143px;
-} 
+.droppables .square {
+	height: 21px;
+	width: 32px;
+	text-align: center;
+	font-size: 0.8em;
+	padding-top: 11px;
+	background-repeat: no-repeat;
+	background-color: #B5B4BA;
+	background-image: url(../images/slot1_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .highlight-droppable {
+	background-color: #A9A9B4;
+	background-image: url(../images/slot1_over_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .drag-activate-positive {
+	background-color: #4EC741;
+	background-image: url(../images/slot_yes_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .drag-activate-maybe {
+	background-color: #DBDB32;
+	background-image: url(../images/slot_maybe_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .drag-activate-negative {
+	background-color: #E16363;
+	background-image: url(../images/slot_no_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .drag-activate-positive.drag-over {
+	background-color: #F15454;
+	background-image: url(../images/slot_yes_over_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .drag-activate-maybe.drag-over {
+	background-color: #EDED14;
+	background-image: url(../images/slot_maybe_over_1.jpg); /** sprite-ref: grid; */
+}
+
+.droppables .drag-activate-negative.drag-over {
+	background-color: #38E523;
+	background-image: url(../images/slot_no_over_1.jpg); /** sprite-ref: grid; */
+}
+
+.draggables .square, .droppables .ui-droppable-disabled {
+	height: 30px;
+	width: 30px;
+	border: 1px solid #A9A5AF;
+	background-color: #CFCBDA;
+	background-repeat: repeat-x;
+	background-image: url(../images/box1_1.jpg); /** sprite-ref: grid; sprite-margin-bottom: 32px; sprite-alignment: repeat; */
+	cursor: pointer;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.droppables .ui-droppable-disabled {
+	cursor: default;
+	padding-top: 10px;
+	height: 20px;
+}
+
+.draggables .square:hover {
+	background-color: #B9A1FA;
+	background-image: url(../images/box1_2.jpg); /** sprite-ref: grid; sprite-margin-bottom: 32px; sprite-alignment: repeat; */
+}
+
+.draggables .ui-draggable-disabled, .draggables .ui-draggable-disabled:hover {
+	background-color: transparent;
+	background-image: none;
+	border-color: transparent;
+	cursor: default;
+}
+
+
+.weekdays .square:first-child,
+.monthdays .square:first-child,
+.droppables .square:first-child,
+.draggables .square:first-child
+{
+	width: 134px;
+	white-space: nowrap;
+	padding-left: 9px;
+	border-width: 0;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.droppables .square:first-child {
+	background-color: #EDE9FA;
+	background-image: none;
+	padding-top: 9px;
+	height: 23px;
+	font-size: 1em;
+	text-align: left;
+}
+
+.draggables .square:first-child {
+	padding-top: 9px;
+	height: 23px;
+	background-color: #8552D1;
+	background-image: none;
+	color: #FFFFFF;
+}
+
+.weekdays .square:first-child,
+.monthdays .square:first-child
+{
+	text-align: left;
+}
