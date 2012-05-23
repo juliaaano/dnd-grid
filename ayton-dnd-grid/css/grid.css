@@ -1,18 +1,121 @@
+html,body {
+	width: 100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+
 body {
-	border-width: 0px;
-	padding: 0px;
-	margin: 0px;
-	font-size: 90%;
-	background-color: #e7e7de;
+	background-color: #FFFFFF;
+	background-repeat: repeat-x;
+	background-position: center 80px;
+	background-image: url(../images/bg_1.jpg);
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	line-height: 1em;
+}
+
+#page {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+}
+
+#head {
+	width: 100%;
+	height: 80px;
+	position: relative;
+	background-color: #573395;
+	background-repeat: repeat-x;
+	background-image: url(../images/topbg_1.jpg);
+	color: #FFFFFF;
+	margin-bottom: 16px;
+}
+
+#pageContent {
+	padding: 16px 0 96px;
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+#foot {
+	width: 100%;
+	background-color: #E0DCE6;
+	color: #908D94;
+	min-height: 64px;
+	position: absolute;
+	bottom: 0;
+}
+
+.content {
+	width: 100%;
+	max-width: 960px;
+	position: relative;
+	margin: 0 auto;
+}
+
+#head .content {
+	width: 100%;
+	height: 80px;
+}
+
+#foot .content {
+	padding: 16px 0 8px;
+	background-repeat: no-repeat;
+	background-position: 0 16px;
+	background-image: url(../images/weevlogo_1.png);
+}
+
+#foot p {
+	margin: 2px 0 4px 55px;
+}
+
+#aytonLogo {
+	position: absolute;
+	top: 20px;
+	left: 11px;
+	margin: 0;
+	padding: 0;
+	width: 161px;
+	height: 42px;
+	background-repeat: no-repeat;
+	background-image: url(../images/aytonlogo_1.png);
+}
+
+#aytonLogo span {
+	display: none;
+}
+
+.pageTitle {
+	position: absolute;
+	right: 11px;
+	top: 30px;
+	font-weight: normal;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
+.theGrid {
+	clear: both;
+	margin: 0 auto;
 }
 
 .grid-row {
-	position: relative;
-	float: left;
-	left: 250px;
-	width: 1180px;
-	margin-bottom: 4px;
-	background-color: #cccccc;
+	display: block;
+	clear: both;
+}
+
+.theGrid:after, .grid-row:after {
+	content: " ";
+	display: block;
+	clear: both;
 }
 
 .drop {
@@ -40,75 +143,30 @@ body {
 }
 
 .square {
-	position: relative;
+	position: relative; 
 	float: left;
-	width: 68px;
-	height: 68px;
-	background-color: #828282;
+	margin: 0 1px 1px 0;
+	display: block;
 }
 
-.square-header {
-	background-color: white;
+.square-header, .weekdays .square, .monthdays .square {
+	background-color: #C0B9D9;
+	font-size: 0.8em;
+	color: #FFFFFF;
+	padding: 11px 0 0;
+	height: 20px;
+	width: 32px;
+	overflow: hidden;
+	text-align: center;
 }
 
-.square-00 {
-	left: 2px;
-	width: 168px;
-	background-color: white;
+.monthdays .square-header, .monthdays .square {
+	padding-top: 5px;
+	height: 17px;
+	background-color: #A9A3BF;
 }
 
-.square-01 {
-	left: 2px;
-}
+.weekdays .square:first-child, .monthdays .square:first-child {
+	width: 143px;
+} 
 
-.square-02 {
-	left: 6px;
-}
-
-.square-03 {
-	left: 10px;
-}
-
-.square-04 {
-	left: 14px;
-}
-
-.square-05 {
-	left: 18px;
-}
-
-.square-06 {
-	left: 22px;
-}
-
-.square-07 {
-	left: 26px;
-}
-
-.square-08 {
-	left: 30px;
-}
-
-.square-09 {
-	left: 34px;
-}
-
-.square-10 {
-	left: 38px;
-}
-
-.square-11 {
-	left: 42px;
-}
-
-.square-12 {
-	left: 46px;
-}
-
-.square-13 {
-	left: 50px;
-}
-
-.square-14 {
-	left: 54px;
-}
