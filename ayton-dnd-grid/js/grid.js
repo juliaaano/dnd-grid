@@ -17,7 +17,9 @@ $(function() {
 		// axis: "y", // problem with helper out of line when dragging vertically.
 		create : function (event, ui) {
 			$(this).attr("onmouseover", "onMouseOverDraggable(this)");
-			$(this).attr("onmouseout", "onMouseOverDraggable(this)");
+			$(this).attr("onmouseout", "onMouseOutDraggable(this)");
+			$(this).html("<p></p>");
+			addShiftLabel($(this).parent()[0].id, $(this));
 		}
 	});
 
@@ -56,7 +58,9 @@ function onDrop(event, ui, droppable) {
 
 	droppable.addClass("drop");
 	
-	addShiftLabel(ui, droppable);
+	addShiftLabel(ui.draggable.parent()[0].id, droppable);
+	
+	ui.draggable.find("p").html("");
 
 	droppable.droppable("disable"); // It's gotta go before ui.draggable("disable");
 
@@ -100,6 +104,7 @@ function onDeactivate(event, ui, droppable) {
 	droppable.removeClass("drag-activate-positive");
 	droppable.removeClass("drag-activate-negative");
 	droppable.removeClass("drag-activate-maybe");
+	droppable.removeClass("highlight-droppable");
 }
 
 function onOver(event, ui, droppable) {
@@ -118,7 +123,16 @@ function onMouseOverDraggable(element) {
 	
 	var droppable = $(".droppable-" + squareIndex);
 	
-	droppable.toggleClass("highlight-droppable");
+	droppable.addClass("highlight-droppable");
+}
+
+function onMouseOutDraggable(element) {
+	
+	var squareIndex = element.classList[1].substring(7);
+	
+	var droppable = $(".droppable-" + squareIndex);
+	
+	droppable.removeClass("highlight-droppable");
 }
 
 function onClickDroppedSquare(element) {
@@ -141,22 +155,21 @@ function onClickDroppedSquare(element) {
 
 	draggable.draggable("enable");
 	draggable.removeClass("drag-disabled");
+	draggable.find("p").html(shift);
 
 	droppable.droppable("enable");
 	droppable.removeClass("drop");
 	droppable.find("p").html("");
 }
 
-function addShiftLabel(ui, droppable) {
-	
-	var shift = ui.draggable.parent()[0].id;
+function addShiftLabel(shift, element) {
 	
 	if ("morning" == shift) {
-		droppable.find("p").html("MO");
+		element.find("p").html("MO");
 	} else if ("afternoon" == shift) {
-		droppable.find("p").html("AF");
+		element.find("p").html("AF");
 	} else if ("evening" == shift) {
-		droppable.find("p").html("EV");
+		element.find("p").html("EV");
 	}
 }
 

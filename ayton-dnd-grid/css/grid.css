@@ -239,7 +239,7 @@ a:hover {
 }
 
 .draggables .square, .droppables .ui-droppable-disabled {
-	height: 30px;
+	height: 20px;
 	width: 30px;
 	border: 1px solid #A9A5AF;
 	background-color: #CFCBDA;
@@ -249,6 +249,12 @@ a:hover {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
+}
+
+.draggable {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 0.8em;
 }
 
 .droppables .ui-droppable-disabled {
