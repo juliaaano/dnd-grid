@@ -1,4 +1,7 @@
-weev
+Drag and drop grid experiment
 ====
 
-Projects 4 Weev
+Run with:
+```
+python3 -m http.server
+```
